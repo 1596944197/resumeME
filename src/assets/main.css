@@ -1,0 +1,45 @@
+#app {
+  margin: 0 auto;
+  font-weight: normal;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.A4 {
+  width: 210mm;
+  /* height: 297mm; */
+  padding: 0;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  box-shadow: 0 2px 4px 1px rgba(0, 0, 0, 0.15);
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+@media print {
+  .A4 {
+    page-break-before: always;
+    border: none;
+    margin: 0;
+    box-shadow: none;
+  }
+  #app {
+    display: block;
+    font-family: ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+      'Segoe UI Symbol', 'Noto Color Emoji';
+  }
+}
+
+html,
+body {
+  font-family: 'Noto Sans SC', sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  /* rem文本大小 */
+  font-size: 16px;
+}
+
+li {
+  list-style-type: square;
+}

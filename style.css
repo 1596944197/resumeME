@@ -1,0 +1,26 @@
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.A4 {
+  width: 210mm;
+  height: 297mm;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  border: 1px solid #611414;
+  margin-bottom: 5px;
+}
+@media print {
+  .A4 {
+    page-break-before: always;
+  }
+  body {
+    display: block;
+  }
+}
