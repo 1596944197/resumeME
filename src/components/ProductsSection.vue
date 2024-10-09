@@ -22,11 +22,51 @@ function FormAtList(items?: string[]) {
     )
   })
 }
+
+function FormatText(input?: string) {
+  if (!input) return null
+
+  const markdownLinkRegex = /\[([^\]]+)\]\(([^)]+)\)/g
+  const parts = []
+  let currentIndex = 0
+  let match
+
+  // 使用 exec 来逐步匹配
+  while ((match = markdownLinkRegex.exec(input)) !== null) {
+    const [fullMatch, text, url] = match
+    const matchIndex = match.index
+
+    // 添加前面的普通文本
+    if (currentIndex < matchIndex) {
+      parts.push(input.substring(currentIndex, matchIndex))
+    }
+
+    // 添加链接部分
+    parts.push(
+      <a key={matchIndex} href={url} class="text-tBlue">
+        {/* 增加下划线 */}
+        <u class="underline">{text}</u>
+      </a>,
+    )
+
+    // 更新当前索引
+    currentIndex = matchIndex + fullMatch.length
+  }
+
+  // 添加最后一段普通文本
+  if (currentIndex < input.length) {
+    parts.push(input.substring(currentIndex))
+  }
+
+  return <span>{parts}</span>
+}
 const RoleNode = () => FormAtList(props.role)
 const BgNode = () => FormAtList(props.bg)
 const ActionsNode = () => FormAtList(props.actions)
 const ResultNode = () => FormAtList(props.result)
 const SkillNode = () => FormAtList(props.skills)
+
+const TitleNode = FormatText(props.title)
 </script>
 
 <template>
@@ -36,7 +76,7 @@ const SkillNode = () => FormAtList(props.skills)
         <div class="text-left">
           <div class="text-tTitle font-bold mr-2 mb-1 text-base">
             <!-- slot位置 -->
-            {{ title }}
+            <TitleNode />
           </div>
         </div>
         <div class="shrink-0 text-right text-xs">

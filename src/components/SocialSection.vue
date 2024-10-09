@@ -58,7 +58,7 @@
             />
             <div class="font-medium w-20">我的站点：</div>
             <a
-              href="https://mh33.top"
+              href="https://mh33.top/payList"
               target="_blank"
               rel="noreferrer noopener nofollow"
               class="inline-block decoration-solid underline text-tBlue"

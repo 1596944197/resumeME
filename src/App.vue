@@ -71,7 +71,7 @@ const product1 = ref<ProductProps>({
 })
 
 const product2 = ref<ProductProps>({
-  title: '个人站点（独立开发）',
+  title: '个人站点 [mh33.top](https://mh33.top/paylist)（独立开发）',
   time: '2023年6月—2024年5月',
   skills: [
     'vue、react、ts、tailwind、parallax-scrolling、express、socket、nginx、docker、mysql、redis、chatGpt、Micro Frontend、HotLinking、alipay、clash、cli、chrome-extension、mail-api',
@@ -120,13 +120,6 @@ const product4 = ref<ProductProps>({
   ],
 })
 
-const product5 = ref<ProductProps>({
-  title: '希芙诗',
-  time: '2021年7月—2021年9月',
-  bg: ['一个远程开发项目，主要开发ToC端小程序商城项目'],
-  result: ['设计了首页瀑布流以及购物车多选功能'],
-})
-
 const name = '梅XX'
 
 const education = ref<EducationProps>({
@@ -152,20 +145,19 @@ const education = ref<EducationProps>({
       <SkillsSection :content="professionSkills" />
     </LeftContentSection>
 
-    <LeftContentSection title="教育经历" :direction="direction">
-      <EducationSection :="education" />
-    </LeftContentSection>
-
     <LeftContentSection title="项目经历" :direction="direction">
       <ProductsSection v-bind="product1" />
       <ProductsSection v-bind="product2" />
       <ProductsSection v-bind="product3" />
       <ProductsSection v-bind="product4" />
-      <ProductsSection v-bind="product5" />
     </LeftContentSection>
 
     <LeftContentSection title="工作经历" :direction="direction">
       <WorksSection :works="works" />
+    </LeftContentSection>
+
+    <LeftContentSection title="教育经历" :direction="direction">
+      <EducationSection v-bind="education" />
     </LeftContentSection>
   </PageSection>
 </template>
