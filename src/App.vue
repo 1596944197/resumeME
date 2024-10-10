@@ -61,6 +61,10 @@ const socials = ref(Content.socials)
     <LeftContentSection title="工作经历" :direction="direction">
       <WorksSection :works="works" />
     </LeftContentSection>
+
+    <LeftContentSection title="致谢" :direction="direction">
+      <span class="text-xs">感谢您的耐心阅读！期待与您一起共事~~</span>
+    </LeftContentSection>
   </PageSection>
 </template>
 
