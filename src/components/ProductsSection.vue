@@ -120,7 +120,10 @@ const TitleNode = FormatText(props.title)
         </div>
 
         <div class="text-left mb-2.5" v-if="result">
-          <div class="text-xs font-bold text-tTitle mb-1">结果</div>
+          <div class="text-xs font-bold text-tTitle mb-1">
+            行动 <span class="align-text-bottom">|</span>
+            结果
+          </div>
           <!-- slot位置 -->
           <ul class="list-disc col-span-5 ml-2 text-xs">
             <ResultNode />
