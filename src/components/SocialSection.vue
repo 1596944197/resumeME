@@ -11,7 +11,7 @@ defineProps<{
     <div class="space-y-2" v-for="(s, i) of socials" :key="i">
       <div>
         <div class="flex items-center gap-x-1.5">
-          <img class="ph" width="14" height="14" :alt="s.name" :src="s.iconUrl" />
+          <img class="ph mb-0.5" width="14" height="14" :alt="s.name" :src="s.iconUrl" />
           <div class="font-medium w-20">{{ s.name }}：</div>
           <a
             :href="s.a_href"
