@@ -1,8 +1,10 @@
 <script lang="ts" setup>
+import type { Direction } from '@/types/app'
+
 interface Props {
   title: string
   // 方向
-  direction?: 'left' | 'top'
+  direction?: Direction
 }
 
 const { direction = 'left' } = defineProps<Props>()

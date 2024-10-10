@@ -41,5 +41,6 @@ body {
 }
 
 li {
-  list-style-type: square;
+  /* 圆形 */
+  list-style-type: circle;
 }

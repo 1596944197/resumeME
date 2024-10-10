@@ -1,11 +1,7 @@
 <script lang="ts" setup>
-type Props = {
-  showImg: boolean
-  name: string
-  avatar?: string
-}
+import type { HeaderProps } from '@/types/app'
 
-defineProps<Props>()
+defineProps<HeaderProps>()
 </script>
 
 <template>

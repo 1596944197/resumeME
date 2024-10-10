@@ -1,70 +1,25 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+import type { SocialProps } from '@/types/app'
+
+defineProps<{
+  socials: SocialProps[]
+}>()
+</script>
 
 <template>
   <div class="col-span-4 grid gap-x-6 text-sm" style="grid-template-columns: repeat(1, 1fr)">
-    <div class="space-y-2">
+    <div class="space-y-2" v-for="(s, i) of socials" :key="i">
       <div>
         <div class="flex items-center gap-x-1.5">
-          <img
-            class="ph"
-            width="14"
-            height="14"
-            alt="Github"
-            src="https://cdn.simpleicons.org/github"
-          />
-          <div class="font-medium w-20">Github：</div>
+          <img class="ph" width="14" height="14" :alt="s.name" :src="s.iconUrl" />
+          <div class="font-medium w-20">{{ s.name }}：</div>
           <a
-            href="https://github.com/1596944197"
+            :href="s.a_href"
             target="_blank"
             rel="noreferrer noopener nofollow"
             class="inline-block decoration-solid underline text-tBlue"
+            >{{ s.value }}</a
           >
-            github.com/1596944197
-          </a>
-        </div>
-      </div>
-    </div>
-    <div class="space-y-2">
-      <div>
-        <div class="flex items-center gap-x-1.5">
-          <img
-            class="ph"
-            width="14"
-            height="14"
-            alt="掘金"
-            src="https://cdn.simpleicons.org/juejin"
-          />
-          <div class="font-medium w-20">掘金：</div>
-          <a
-            href="https://juejin.cn/user/2780019832658616"
-            target="_blank"
-            rel="noreferrer noopener nofollow"
-            class="inline-block decoration-solid underline text-tBlue"
-            >juejin.cn/user/2780019832658616</a
-          >
-        </div>
-      </div>
-    </div>
-    <div class="space-y-2">
-      <div>
-        <div>
-          <div class="flex items-center gap-x-1.5">
-            <img
-              class="ph"
-              width="14"
-              height="14"
-              alt="我的网站"
-              src="https://cdn.simpleicons.org/aiqfome"
-            />
-            <div class="font-medium w-20">我的站点：</div>
-            <a
-              href="https://mh33.top/payList"
-              target="_blank"
-              rel="noreferrer noopener nofollow"
-              class="inline-block decoration-solid underline text-tBlue"
-              >mh33.top</a
-            >
-          </div>
         </div>
       </div>
     </div>

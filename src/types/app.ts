@@ -32,3 +32,29 @@ export type EducationProps = {
   // 学历
   degree: string
 }
+
+export type HeaderProps = {
+  showImg: boolean
+  name: string
+  avatar?: string
+}
+
+export type SocialProps = {
+  iconUrl: string
+  name: string
+  value: string
+  a_href: string
+}
+
+export type Direction = 'left' | 'top'
+
+export interface AppState {
+  works: WorksProps['works']
+  link: LinkProps
+  skills: string[]
+  products: ProductProps[]
+  educations: EducationProps[]
+  header: HeaderProps
+  direction: Direction
+  socials: SocialProps[]
+}
