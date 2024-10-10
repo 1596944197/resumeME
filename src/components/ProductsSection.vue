@@ -8,7 +8,7 @@ function FormAtList(items?: string[]) {
     const parts = item.split(/(<[^>]+>)/).map((part, i) => {
       if (part.startsWith('<') && part.endsWith('>')) {
         return (
-          <span key={i} class="text-tBlue">
+          <span key={i} class="text-tRed">
             {part.slice(1, -1)}
           </span>
         )
@@ -26,40 +26,59 @@ function FormAtList(items?: string[]) {
 function FormatText(input?: string) {
   if (!input) return null
 
-  const markdownLinkRegex = /\[([^\]]+)\]\(([^)]+)\)/g
+  const markdownLinkRegex = /\[([^\]]+)\]\(([^)]+)\)/g // 匹配 Markdown 链接
+  const independentTextRegex = /(?<!\])\s*[（(]([^（）()]+)[）)]/g
+
   const parts = []
   let currentIndex = 0
   let match
 
-  // 使用 exec 来逐步匹配
+  // 解析 Markdown 链接
   while ((match = markdownLinkRegex.exec(input)) !== null) {
     const [fullMatch, text, url] = match
     const matchIndex = match.index
 
-    // 添加前面的普通文本
     if (currentIndex < matchIndex) {
       parts.push(input.substring(currentIndex, matchIndex))
     }
 
-    // 添加链接部分
     parts.push(
-      <a key={matchIndex} href={url} class="text-tBlue">
-        {/* 增加下划线 */}
+      <a key={matchIndex} href={url} class="text-tBlue" target="_blank">
         <u class="underline">{text}</u>
       </a>,
     )
 
-    // 更新当前索引
     currentIndex = matchIndex + fullMatch.length
   }
 
-  // 添加最后一段普通文本
+  let independentMatch
+
+  // 解析（独立开发）等格式
+  while ((independentMatch = independentTextRegex.exec(input)) !== null) {
+    const [fullIndependentMatch, independentText] = independentMatch
+    const independentMatchIndex = independentMatch.index
+
+    if (currentIndex < independentMatchIndex) {
+      parts.push(input.substring(currentIndex, independentMatchIndex))
+    }
+
+    parts.push(
+      <span key={independentMatchIndex} class="text-tBlue ml-1">
+        ({independentText})
+      </span>,
+    )
+
+    currentIndex = independentMatchIndex + fullIndependentMatch.length
+  }
+
+  // 添加最后的普通文本
   if (currentIndex < input.length) {
     parts.push(input.substring(currentIndex))
   }
 
   return <span>{parts}</span>
 }
+
 const RoleNode = () => FormAtList(props.role)
 const BgNode = () => FormAtList(props.bg)
 const ActionsNode = () => FormAtList(props.actions)
