@@ -30,3 +30,4 @@ coverage
 *.tsbuildinfo
 
 content.ts
+content copy.ts

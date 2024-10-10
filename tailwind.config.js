@@ -6,7 +6,7 @@ export default {
     colors: {
       tBlue: 'rgb(22,119,255)',
       tTitle: 'rgb(64,64,65)',
-      tRed: 'rgb(248 113 113);'
+      tRed: 'rgb(239 68 68);'
     }
   },
   plugins: []
