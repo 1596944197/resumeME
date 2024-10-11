@@ -114,7 +114,7 @@ const TitleNode = FormatText(props.title)
         </div>
 
         <div class="text-left" v-if="skills">
-          <div class="text-xs font-bold text-tTitle mb-1">关键词</div>
+          <div class="text-xs font-bold text-tTitle mb-1">技术栈</div>
           <!-- slot位置 -->
           <ul class="list-disc col-span-5 ml-2 text-xs">
             <SkillNode />
