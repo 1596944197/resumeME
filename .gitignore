@@ -29,5 +29,5 @@ coverage
 
 *.tsbuildinfo
 
-content.ts
-content copy.ts
+!content.template.ts
+content*.ts
