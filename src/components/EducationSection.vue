@@ -12,7 +12,7 @@ defineProps<EducationProps>()
           <div class="text-sm text-tTitle font-bold mr-2">{{ school }}</div>
           <span class="text-xs mr-3">{{ major }}</span>
           <span class="text-xs mr-3">{{ degree }}</span>
-          <span class="text-xs mr-3">GPA: {{ gpa }}</span>
+          <span class="text-xs mr-3" v-if="gpa">GPA: {{ gpa }}</span>
         </div>
         <div class="shrink-0 text-right text-xs">
           <div>{{ time }}</div>

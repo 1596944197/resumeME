@@ -15,19 +15,21 @@ export type WorksProps = {
     time: string
     role: string
     depart: string
+    bg?: string
   }[]
 }
 
 export type LinkProps = {
-  phone: string
-  email: string
-  experience: string
+  phone?: string
+  email?: string
+  experience?: string
+  age?: string
 }
 
 export type EducationProps = {
   school: string
   major: string
-  gpa: string
+  gpa?: string
   time: string
   // 学历
   degree: string

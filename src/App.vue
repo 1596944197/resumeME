@@ -46,6 +46,10 @@ const socials = ref(Content.socials)
       <SocialSection :socials="socials" />
     </LeftContentSection>
 
+    <LeftContentSection title="工作经历" :direction="direction">
+      <WorksSection :works="works" />
+    </LeftContentSection>
+
     <LeftContentSection title="专业技能" :direction="direction">
       <SkillsSection :content="professionSkills" />
     </LeftContentSection>
@@ -56,10 +60,6 @@ const socials = ref(Content.socials)
 
     <LeftContentSection title="项目经历" :direction="direction">
       <ProductsSection v-for="(product, index) of productRef" v-bind="product" :key="index" />
-    </LeftContentSection>
-
-    <LeftContentSection title="工作经历" :direction="direction">
-      <WorksSection :works="works" />
     </LeftContentSection>
 
     <LeftContentSection title="致谢" :direction="direction">

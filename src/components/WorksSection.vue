@@ -17,6 +17,11 @@ function FormAtList(items?: WorksProps['works']) {
             <div>{item.time}</div>
           </div>
         </div>
+        {item.bg && (
+          <ul class="ml-4">
+            <li class="text-xs">{item.bg}</li>
+          </ul>
+        )}
       </div>
     )
   })
