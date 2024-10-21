@@ -5,6 +5,7 @@ import EducationSection from './components/EducationSection.vue'
 import HeaderSection from './components/HeaderSection.vue'
 import LeftContentSection from './components/LeftContentSection.vue'
 import LinkSection from './components/LinkSection.vue'
+import MySkillsSection from './components/MySkillsSection.vue'
 import PageSection from './components/PageSection.vue'
 import ProductsSection from './components/ProductsSection.vue'
 import SkillsSection from './components/SkillsSection.vue'
@@ -34,6 +35,8 @@ const header = ref<HeaderProps>(Content.header)
 const educationRef = ref<EducationProps[]>(Content.educations)
 
 const socials = ref(Content.socials)
+
+const mySkills = ref(Content.mySkills)
 </script>
 
 <template>
@@ -42,8 +45,12 @@ const socials = ref(Content.socials)
 
     <LinkSection v-bind="linkInfo" />
 
-    <LeftContentSection title="社交信息" :direction="direction">
+    <LeftContentSection title="社交信息" :direction="direction" v-if="socials">
       <SocialSection :socials="socials" />
+    </LeftContentSection>
+
+    <LeftContentSection title="技术栈" :direction="direction" v-if="mySkills">
+      <MySkillsSection :content="mySkills" />
     </LeftContentSection>
 
     <LeftContentSection title="工作经历" :direction="direction">

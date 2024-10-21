@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import type { LinkProps } from '@/types/app'
-import { PhAt, PhCactus, PhCirclesThree, PhPhone } from '@phosphor-icons/vue'
+import { PhAddressBook, PhAt, PhCactus, PhCirclesThree, PhPhone } from '@phosphor-icons/vue'
 defineProps<LinkProps>()
 </script>
 
@@ -23,6 +23,10 @@ defineProps<LinkProps>()
     <div class="flex items-center gap-x-1" v-if="age">
       <PhCirclesThree color="blue" />
       <span>{{ age }}岁 </span>
+    </div>
+    <div class="flex items-center gap-x-1" v-if="socialAddress">
+      <PhAddressBook color="blue" />
+      <span>{{ socialAddress }}</span>
     </div>
   </div>
 </template>

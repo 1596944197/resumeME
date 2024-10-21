@@ -24,6 +24,7 @@ export type LinkProps = {
   email?: string
   experience?: string
   age?: string
+  socialAddress?: string
 }
 
 export type EducationProps = {
@@ -50,7 +51,14 @@ export type SocialProps = {
 
 export type Direction = 'left' | 'top'
 
-export interface AppState {
+export type MySkillsProps = {
+  content: {
+    icon: string
+    title: string
+  }[]
+}
+
+export type AppState = {
   works: WorksProps['works']
   link: LinkProps
   skills: string[]
@@ -58,5 +66,6 @@ export interface AppState {
   educations: EducationProps[]
   header: HeaderProps
   direction: Direction
-  socials: SocialProps[]
+  socials?: SocialProps[]
+  mySkills?: MySkillsProps['content']
 }

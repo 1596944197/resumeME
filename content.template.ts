@@ -55,6 +55,12 @@ const _default: AppState = {
       a_href: 'https://mh33.top/payList',
     },
   ],
+  mySkills: [
+    {
+      icon: 'typescript',
+      title: 'typescript',
+    },
+  ],
 }
 
 export default _default
