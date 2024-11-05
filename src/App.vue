@@ -69,7 +69,7 @@ const acknowledgement = computed(() => {
       <SkillsSection :content="professionSkills" />
     </LeftContentSection>
 
-    <LeftContentSection v-if="productRef.length" title="近期项目" :direction="direction">
+    <LeftContentSection v-if="productRef.length" title="项目经历" :direction="direction">
       <ProductsSection v-for="(product, index) of productRef" v-bind="product" :key="index" />
     </LeftContentSection>
 
