@@ -68,4 +68,5 @@ export type AppState = {
   direction: Direction
   socials?: SocialProps[]
   mySkills?: MySkillsProps['content']
+  acknowledgments?: boolean
 }

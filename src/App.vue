@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 import Content from '../content'
 import EducationSection from './components/EducationSection.vue'
 import HeaderSection from './components/HeaderSection.vue'
@@ -37,6 +37,14 @@ const educationRef = ref<EducationProps[]>(Content.educations)
 const socials = ref(Content.socials)
 
 const mySkills = ref(Content.mySkills)
+
+const acknowledgement = computed(() => {
+  if (Content.acknowledgments || Content.acknowledgments === undefined) {
+    return true
+  } else {
+    return false
+  }
+})
 </script>
 
 <template>
@@ -61,15 +69,15 @@ const mySkills = ref(Content.mySkills)
       <SkillsSection :content="professionSkills" />
     </LeftContentSection>
 
-    <LeftContentSection title="教育经历" :direction="direction">
-      <EducationSection v-for="(edu, index) of educationRef" v-bind="edu" :key="index" />
-    </LeftContentSection>
-
-    <LeftContentSection title="项目经历" :direction="direction">
+    <LeftContentSection v-if="productRef.length" title="近期项目" :direction="direction">
       <ProductsSection v-for="(product, index) of productRef" v-bind="product" :key="index" />
     </LeftContentSection>
 
-    <LeftContentSection title="致谢" :direction="direction">
+    <LeftContentSection v-if="educationRef.length" title="教育经历" :direction="direction">
+      <EducationSection v-for="(edu, index) of educationRef" v-bind="edu" :key="index" />
+    </LeftContentSection>
+
+    <LeftContentSection v-if="acknowledgement" title="致谢" :direction="direction">
       <span class="text-xs">感谢您的耐心阅读！期待与您一起共事~~</span>
     </LeftContentSection>
   </PageSection>
