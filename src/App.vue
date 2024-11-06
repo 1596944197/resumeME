@@ -45,13 +45,29 @@ const acknowledgement = computed(() => {
     return false
   }
 })
+
+const headerFlex = computed(() => Content.headerFlex)
 </script>
 
 <template>
   <PageSection>
-    <HeaderSection v-bind="header" />
+    <section :class="[headerFlex && 'flex mb-3']">
+      <HeaderSection
+        v-bind="{
+          ...header,
+          headerFlex,
+        }"
+        :class="[headerFlex && 'w-[42%]']"
+      />
 
-    <LinkSection v-bind="linkInfo" />
+      <LinkSection
+        v-bind="{
+          ...linkInfo,
+          headerFlex,
+        }"
+        :class="[headerFlex && 'w-[58%]']"
+      />
+    </section>
 
     <LeftContentSection title="社交信息" :direction="direction" v-if="socials">
       <SocialSection :socials="socials" />

@@ -25,6 +25,8 @@ export type LinkProps = {
   experience?: string
   age?: string
   socialAddress?: string
+  showIcon?: boolean
+  headerFlex?: boolean
 }
 
 export type EducationProps = {
@@ -33,13 +35,15 @@ export type EducationProps = {
   gpa?: string
   time: string
   // 学历
-  degree: string
+  degree?: string
 }
 
 export type HeaderProps = {
   showImg: boolean
   name: string
   avatar?: string
+  headerFlex?: boolean
+  title?: string
 }
 
 export type SocialProps = {
@@ -69,4 +73,5 @@ export type AppState = {
   socials?: SocialProps[]
   mySkills?: MySkillsProps['content']
   acknowledgments?: boolean
+  headerFlex?: boolean
 }

@@ -1,7 +1,16 @@
-<script lang="ts" setup>
+<script lang="tsx" setup>
 import type { EducationProps } from '@/types/app'
 
-defineProps<EducationProps>()
+const props = defineProps<EducationProps>()
+
+// 动态组件，如果degree没有，就用span标签，如果有就div标签
+const DynamicComponent = () => {
+  if (props.degree) {
+    return <div class="text-sm text-tTitle font-bold mr-2">{props.school}</div>
+  } else {
+    return <span class="text-sm text-tTitle font-bold mr-2">{props.school}</span>
+  }
+}
 </script>
 
 <template>
@@ -9,7 +18,7 @@ defineProps<EducationProps>()
     <div class="space-y-2">
       <div class="flex items-start justify-between">
         <div class="text-left">
-          <div class="text-sm text-tTitle font-bold mr-2">{{ school }}</div>
+          <DynamicComponent />
           <span class="text-xs mr-3">{{ major }}</span>
           <span class="text-xs mr-3">{{ degree }}</span>
           <span class="text-xs mr-3" v-if="gpa">GPA: {{ gpa }}</span>

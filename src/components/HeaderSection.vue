@@ -5,7 +5,7 @@ defineProps<HeaderProps>()
 </script>
 
 <template>
-  <div>
+  <div :class="headerFlex && ['flex', 'flex-col', 'items-start', 'justify-center']">
     <img
       v-if="showImg"
       :src="
@@ -17,6 +17,7 @@ defineProps<HeaderProps>()
       style="max-width: 64px; aspect-ratio: 1 / 1; border-radius: 0px; border-width: 0px"
     />
     <div class="text-2xl font-bold text-center mt-2 tracking-wider">{{ name }}</div>
+    <div v-if="headerFlex" class="text-xs text-center tracking-wider font-light">{{ title }}</div>
   </div>
 </template>
 
